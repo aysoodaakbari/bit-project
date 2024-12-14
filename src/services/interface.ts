@@ -1,3 +1,11 @@
+
+
+export interface IListOrder{
+  amount: number;
+  remain: number;
+  price: number;
+  value: number;
+}
 export interface IMarketList {
     count: number, 
     next: null, 

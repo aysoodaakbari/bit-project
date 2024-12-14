@@ -1,4 +1,5 @@
 import Tradingview from "../component/Tradingview";
+import Exchange from "../pages/Exchange";
 import MarketList from "../pages/MarketList";
 
 export interface RouteConfig {
@@ -13,8 +14,8 @@ export const routes: RouteConfig[] = [
     element:<div>ddddd</div> ,
   },
   {
-    path: '/profile',
-    element:<div><Tradingview/></div>,
+    path: '/:id',
+    element:<Exchange/>,
   },
   {
     path: '/dashboard',

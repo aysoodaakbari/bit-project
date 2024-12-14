@@ -1,7 +1,7 @@
 import axios, {  ResponseType } from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.bitpin.ir/v1/',
+  baseURL: 'https://api.bitpin.org/v1/',
   timeout: 50000,
   headers: {
     'Content-Type': 'application/json',
