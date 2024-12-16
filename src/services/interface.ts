@@ -5,14 +5,24 @@ export interface IListOrder{
   remain: number;
   price: number;
   value: number;
+  
+}
+export interface ITradeList{
+  time: string,
+  price: string,
+  value: string,
+  match_amount: string,
+  type: string,
+  match_id: string
+ 
 }
 export interface IMarketList {
     count: number, 
     next: null, 
     previous: null, 
-    results: Array<MarketData>
+    results: Array<IMarketData>
 }
-interface Tag {
+interface ITag {
 
     id: number;
   
@@ -26,7 +36,7 @@ interface Tag {
   
   
   
-  interface Currency {
+  export interface ICurrency {
   
     id: number;
   
@@ -56,7 +66,7 @@ interface Tag {
   
     withdraw_commission: string;
   
-    tags: Tag[];
+    tags: ITag[];
   
     etf: boolean;
   
@@ -72,7 +82,7 @@ interface Tag {
   
   
   
-  interface OrderBookInfo {
+  interface IOrderBookInfo {
   
     created_at: string | null;
   
@@ -120,7 +130,7 @@ interface Tag {
   
   
   
-  interface PriceInfo {
+  export interface IPriceInfo {
   
     created_at: number;
   
@@ -144,13 +154,13 @@ interface Tag {
   
   
   
-  export interface MarketData {
+  export interface IMarketData {
   
     id: number;
   
-    currency1: Currency;
+    currency1: ICurrency;
   
-    currency2: Currency;
+    currency2: ICurrency;
   
     tradable: boolean;
   
@@ -168,11 +178,11 @@ interface Tag {
   
     otc_max_sell_amount: string;
   
-    order_book_info: OrderBookInfo;
+    order_book_info: IOrderBookInfo;
   
     internal_price_info: InternalPriceInfo;
   
-    price_info: PriceInfo;
+    price_info: IPriceInfo;
   
     price: string;
   

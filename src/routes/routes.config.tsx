@@ -1,25 +1,20 @@
-import Tradingview from "../component/Tradingview";
 import Exchange from "../pages/Exchange";
 import MarketList from "../pages/MarketList";
 
 export interface RouteConfig {
-  path: string;                     // مسیر
-  element:JSX.Element;         // کامپوننت یا رپ پرشده
-  isProtected?: boolean;            // آیا محافظت شده است؟
+  path: string;                    
+  element:JSX.Element; 
+
 }
 
 export const routes: RouteConfig[] = [
   {
     path: '/',
-    element:<div>ddddd</div> ,
+    element:<MarketList/> ,
   },
   {
     path: '/:id',
     element:<Exchange/>,
-  },
-  {
-    path: '/dashboard',
-    element:<MarketList/> ,
   },
   {
     path: '*',

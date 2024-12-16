@@ -36,7 +36,7 @@ const Tabs: React.FC<TabsProps> = ({ children, onTabChange }) => {
           </button>
         ))}
       </div>
-      <div className="py-4">
+      <div className="">
         {childArray.map((child) => {
           if (child.props.label === activeTab) {
             return <div key={child.props.label}>{child.props.children}</div>;

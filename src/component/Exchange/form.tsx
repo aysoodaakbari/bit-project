@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useStoredExchangeData } from '../../store/Exchange';
 
 interface FormValues {
   values: number;
   price: number;
 }
 
-const TotalCalculatorForm: React.FC = () => {
+const TotalCalculatorForm = ({ maketPrice }: { maketPrice: string }) => {
   const [total, setTotal] = useState<number>(0);
-  const exchange = useStoredExchangeData((state) => state.exchangeData);
 
   const { control, setValue, watch } = useForm<FormValues>({
     defaultValues: {
       values: 0,
-      price: 0,
+      price: +maketPrice,
     },
   });
 
@@ -22,38 +20,17 @@ const TotalCalculatorForm: React.FC = () => {
   const price = watch('price');
 
   useEffect(() => {
-    setTotal(values * price);
+    setTotal(values * +price);
   }, [values, price]);
 
   return (
     <div className=" bg-background flex flex-col items-center justify-center px-4">
-      <div className="w-full bg-background rounded-lg  p-6">
+      <div className="w-full bg-background rounded-lg py-3">
         <form noValidate>
           <div className="mb-4">
             <label
-              htmlFor="values"
-              className="block text-sm font-medium text-gray-700"
-            >
-              تعداد
-            </label>
-            <Controller
-              name="values"
-              control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  id="values"
-                  type="number"
-                  placeholder="تعداد را وارد کنید"
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                />
-              )}
-            />
-          </div>
-          <div className="mb-4">
-            <label
               htmlFor="price"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-text"
             >
               قیمت واحد
             </label>
@@ -66,13 +43,35 @@ const TotalCalculatorForm: React.FC = () => {
                   id="price"
                   type="number"
                   placeholder="قیمت واحد را وارد کنید"
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-4 py-2 border border-text rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 />
               )}
             />
           </div>
-          <div className="mt-4 p-4 bg-green-100 rounded-md text-green-800 text-center">
-            مجموع: {total.toLocaleString()} تومان
+          <div className="mb-4">
+            <label
+              htmlFor="values"
+              className="block text-sm font-medium text-text"
+            >
+              تعداد
+            </label>
+            <Controller
+              name="values"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  id="values"
+                  type="number"
+                  placeholder="تعداد را وارد کنید"
+                  className="mt-1 block w-full px-4 py-2 border border-text rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              )}
+            />
+          </div>
+
+          <div className="mt-4 p-4 bg-purple rounded-md text-white text-center">
+            {total && ` مجموع: ${total.toLocaleString()} تومان`}
           </div>
         </form>
       </div>
