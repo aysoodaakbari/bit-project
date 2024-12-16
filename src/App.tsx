@@ -4,7 +4,7 @@ import { ReactQueryProvider } from './lib/ReactQueryProvider';
 import { routes } from './routes/routes.config';
 import './style.css';
 const App: React.FC = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
   useEffect(() => {
     const htmlElement = document.documentElement;
     if (isChecked) {
