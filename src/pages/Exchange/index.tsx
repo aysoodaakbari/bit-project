@@ -4,28 +4,31 @@ import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 import TotalCalculatorForm from '../../component/Exchange/form';
 import Table from '../../component/shared/Table';
 import { Tab, Tabs } from '../../component/shared/Tabs';
-import { useGetMarketList, useOrderList, useTradeList } from '../../hooks/MarketList';
+import {
+  useGetMarketList,
+  useOrderList,
+  useTradeList,
+} from '../../hooks/MarketList';
 import { commaThousondSeperator } from '../../lib/utils';
 import { IListOrder, ITradeList } from '../../services/interface';
 
 const Exchange = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<string>('buy');
-  const { data} = useGetMarketList();
+  const { data } = useGetMarketList();
   const { data: sellData } = useOrderList(
     location.pathname.replace('/', ''),
     activeTab === 'sell',
-    'sell',
+    'sell'
   );
   const { data: buyData } = useOrderList(
     location.pathname.replace('/', ''),
     activeTab === 'buy',
-    'buy',
+    'buy'
   );
   const { data: tradeData } = useTradeList(
     location.pathname.replace('/', ''),
-    activeTab === 'trade',
-
+    activeTab === 'trade'
   );
   const filterMarketData = data?.results?.find(
     (item) => item.id.toString() === location.pathname.replace('/', '')
@@ -94,7 +97,7 @@ const Exchange = () => {
               </div>
             </Tab>
             <Tab label="trade" text="معاملات">
-            <div className="flex flex-col">
+              <div className="flex flex-col">
                 <Table data={tradeData?.slice(0, 10) as ITradeList[]} trade />
               </div>
             </Tab>

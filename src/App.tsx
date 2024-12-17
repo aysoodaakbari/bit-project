@@ -27,7 +27,7 @@ const App: React.FC = () => {
             checked={isChecked}
             onChange={handleToggle}
           />
-          <span className='text-text'>تغییر تم </span>
+          <span className="text-text">تغییر تم </span>
           <div className="relative w-11 h-6 bg-disableBg rounded-full  dark:peer-focus:ring-purple peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray peer-checked:bg-purple"></div>
         </label>
       </div>

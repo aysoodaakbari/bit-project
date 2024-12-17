@@ -1,4 +1,4 @@
-import axios, {  ResponseType } from 'axios';
+import axios, { ResponseType } from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api.bitpin.org/v1/',
@@ -21,24 +21,24 @@ export const getData = async <T>(
 };
 
 export const postData = async <T, R>(
-    url: string,
-    data?: T,
-    headers?: any,
-    timeout?: number
-  ): Promise<R> => {
-    try {
-      const response = await axiosInstance.post<R>(url, data, {
-        headers: {
-          ...axiosInstance.defaults.headers,
-          ...headers,
-        },
-        timeout: timeout !== undefined ? timeout : axiosInstance.defaults.timeout,
-      });
-      return response.data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-      } else {
-      }
-      throw error;
+  url: string,
+  data?: T,
+  headers?: any,
+  timeout?: number
+): Promise<R> => {
+  try {
+    const response = await axiosInstance.post<R>(url, data, {
+      headers: {
+        ...axiosInstance.defaults.headers,
+        ...headers,
+      },
+      timeout: timeout !== undefined ? timeout : axiosInstance.defaults.timeout,
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+    } else {
     }
-  };
+    throw error;
+  }
+};

@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, MouseEvent } from "react";
+import React, { useState, ReactNode, MouseEvent } from 'react';
 
 interface TabsProps {
   children: ReactNode;
@@ -8,14 +8,19 @@ interface TabsProps {
 interface TabProps {
   label: string;
   children: ReactNode;
-  text:string
+  text: string;
 }
 
 const Tabs: React.FC<TabsProps> = ({ children, onTabChange }) => {
-  const childArray = React.Children.toArray(children) as React.ReactElement<TabProps>[];
+  const childArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<TabProps>[];
   const [activeTab, setActiveTab] = useState<string>(childArray[0].props.label);
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
+  const handleClick = (
+    e: MouseEvent<HTMLButtonElement>,
+    newActiveTab: string
+  ) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
     if (onTabChange) onTabChange(newActiveTab); // اعلام تغییر تب به والد
@@ -28,7 +33,7 @@ const Tabs: React.FC<TabsProps> = ({ children, onTabChange }) => {
           <button
             key={child.props.label}
             className={`${
-              activeTab === child.props.label ? "border-b-2 border-purple" : ""
+              activeTab === child.props.label ? 'border-b-2 border-purple' : ''
             } flex-1 text-gray-700 font-medium py-2`}
             onClick={(e) => handleClick(e, child.props.label)}
           >
@@ -48,7 +53,7 @@ const Tabs: React.FC<TabsProps> = ({ children, onTabChange }) => {
   );
 };
 
-const Tab: React.FC<TabProps> = ({ label, children,text }) => {
+const Tab: React.FC<TabProps> = ({ label, children, text }) => {
   return (
     <div data-label={label} className="hidden">
       {children}

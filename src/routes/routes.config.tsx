@@ -1,23 +1,22 @@
-import Exchange from "../pages/Exchange";
-import MarketList from "../pages/MarketList";
+import Exchange from '../pages/Exchange';
+import MarketList from '../pages/MarketList';
 
 export interface RouteConfig {
-  path: string;                    
-  element:JSX.Element; 
-
+  path: string;
+  element: JSX.Element;
 }
 
 export const routes: RouteConfig[] = [
   {
     path: '/',
-    element:<MarketList/> ,
+    element: <MarketList />,
   },
   {
     path: '/:id',
-    element:<Exchange/>,
+    element: <Exchange />,
   },
   {
     path: '*',
-    element:<div>404</div> ,
+    element: <div>404</div>,
   },
 ];

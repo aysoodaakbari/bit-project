@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class', '[data-mode="dark"]'],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -48,7 +48,7 @@ export default {
         orange: '#FF9800',
         pink: '#FF4081',
         yellow: '#E0BC00',
-        darkBg:'#131722'
+        darkBg: '#131722',
       },
     },
   },

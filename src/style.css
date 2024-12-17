@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-      --background: #fff;
-      --text: #323e54;
-      --hover: 243 245 249;
-      --border: #e0e3eb;
-      --icons: #787b86;
-      --selected: 213 241 255;
-      --gray: #a3a6af;
-      --disableText: #b2b5be;
-      --disableBorder: #d1d4dc;
-      --disableBg: #f0f3fa;
-      --red: #f23645;
-      --blue: #2962ff;
-      --mobileHeaderHeight: 60px;
-      --mobileButtonHandlerHeight: 120px;
-      --skeleton: #e2e8f0;
-    }
-
-    .dark {
-      --background: #131722;
-      --text: #d1d4dc;
-      --hover: 47 50 65;
-      --border: #434651;
-      --icons: #787b86;
-      --selected: 33 56 77;
-      --gray: #4f525d;
-      --disableText: #50535e;
-      --disableBorder: #50535e;
-      --disableBg: #2a2e39;
-      --red: #f23645;
-      --blue: #2962ff;
-      --skeleton: #353746;
-    }
+  :root {
+    --background: #fff;
+    --text: #323e54;
+    --hover: 243 245 249;
+    --border: #e0e3eb;
+    --icons: #787b86;
+    --selected: 213 241 255;
+    --gray: #a3a6af;
+    --disableText: #b2b5be;
+    --disableBorder: #d1d4dc;
+    --disableBg: #f0f3fa;
+    --red: #f23645;
+    --blue: #2962ff;
+    --mobileHeaderHeight: 60px;
+    --mobileButtonHandlerHeight: 120px;
+    --skeleton: #e2e8f0;
   }
+
+  .dark {
+    --background: #131722;
+    --text: #d1d4dc;
+    --hover: 47 50 65;
+    --border: #434651;
+    --icons: #787b86;
+    --selected: 33 56 77;
+    --gray: #4f525d;
+    --disableText: #50535e;
+    --disableBorder: #50535e;
+    --disableBg: #2a2e39;
+    --red: #f23645;
+    --blue: #2962ff;
+    --skeleton: #353746;
+  }
+}
